@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
         // [START read_message]
         // Read from the database
-        myRef_Name.addValueEventListener(new ValueEventListener() {
+        myRef_Message.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String id =snapshot.getValue(String.class);
-                ID = Integer.parseInt(id);
+                ID = Integer.valueOf(id);
             }
 
             @Override
