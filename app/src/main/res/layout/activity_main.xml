@@ -33,6 +33,7 @@
         android:inputType="textEmailAddress" />
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -43,6 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"
             android:text="@string/sexF" />
 
         <RadioButton
@@ -50,6 +52,7 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
             android:text="@string/sexM" />
 
         <RadioButton
@@ -57,6 +60,7 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
             android:text="@string/sexO" />
     </RadioGroup>
 
@@ -77,6 +81,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:paddingTop="15dp"
+
         android:text="TextView" />
 
     <TextView

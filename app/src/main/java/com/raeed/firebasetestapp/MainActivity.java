@@ -26,6 +26,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
@@ -39,9 +40,12 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     public int ID;
     public String newId;
+    public String userSex;
     Button update;
     EditText EditName,Email,Age;
-    RadioButton female,male,other;
+    RadioButton Female,sex;
+
+    RadioGroup radioGroup;
     TextView tvname,tvemail,tvage,tvsex;
     FirebaseDatabase database= FirebaseDatabase.getInstance();
     public DatabaseReference myRef_Name= database.getReference("name");
@@ -56,14 +60,13 @@ public class MainActivity extends AppCompatActivity {
         EditName = findViewById(R.id.PersonName);
         Email = findViewById(R.id.EmailAddress);
         Age = findViewById(R.id.editAge);
-        female=findViewById(R.id.female);
-        male=findViewById(R.id.male);
-        other=findViewById(R.id.other);
+        radioGroup=findViewById(R.id.radioGroup);
         tvname = findViewById(R.id.tvName);
         tvage = findViewById(R.id.tvAge);
         tvemail = findViewById(R.id.tvEmail);
         tvsex = findViewById(R.id.tvSex);
         update = findViewById(R.id.send);
+        Female =findViewById(R.id.female);
 
         update.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,8 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 String userNm=EditName.getText().toString();
                 String userEm=Email.getText().toString();
                 String userAge=Age.getText().toString();
-
-
+                write_message(userNm,userSex,userEm,userAge,newId);
             }
         });
 
@@ -134,6 +136,24 @@ public class MainActivity extends AppCompatActivity {
         myRef_Message.setValue("Hello, World!");
         myRef_last_Id.setValue(ID);
         myRef_Name.child("users").child(userId).setValue(user);
+    }
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.female:
+                if (checked) userSex ="Female";
+                    break;
+            case R.id.male:
+                if (checked) userSex = "Male";
+                    break;
+            case R.id.other:
+                if (checked) userSex="Other";
+            break;
+        }
     }
 
 }
