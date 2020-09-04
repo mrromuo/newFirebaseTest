@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">FireBase Test App</string>
+    <string name="name">Please Enter Your Name</string>
+    <string name="Age">Please Enter Your Age</string>
+    <string name="Email">Please Enter Your Email</string>
+    <string name="ssex">Select your Sex Please</string>
+    <string name="sexF">Female</string>
+    <string name="sexM">male</string>
+    <string name="sexO">Other</string>
+
+    
 </resources>
